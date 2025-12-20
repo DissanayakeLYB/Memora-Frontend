@@ -12,6 +12,8 @@ export const ROUTES = {
   DASHBOARD: "/dashboard",
   CREATE_ALBUM: "/create-album",
   ALBUM: (id: string) => `/album/${id}`,
+  PRIVACY: "/privacy",
+  TERMS: "/terms",
 } as const;
 
 /**

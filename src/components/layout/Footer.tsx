@@ -12,7 +12,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo & tagline */}
           <div className="flex items-center gap-2">
-            <span className="text-muted-foreground text-sm">Cherish your memories</span>
+            <span className="text-muted-foreground text-sm hidden sm:inline">Cherish your memories</span>
           </div>
 
           {/* Links */}
@@ -21,19 +21,17 @@ export function Footer() {
               Home
             </Link>
             <span className="text-border">|</span>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href={ROUTES.PRIVACY} className="hover:text-foreground transition-colors">
               Privacy
             </Link>
             <span className="text-border">|</span>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href={ROUTES.TERMS} className="hover:text-foreground transition-colors">
               Terms
             </Link>
           </nav>
 
-          
         </div>
       </div>
     </footer>
   );
 }
-
