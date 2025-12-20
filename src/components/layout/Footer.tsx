@@ -12,11 +12,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo & tagline */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-primary to-amber-600 flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-sm">M</span>
-            </div>
-            <span className="font-serif text-foreground">Memora</span>
-            <span className="text-muted-foreground text-sm">• Cherish your memories</span>
+            <span className="text-muted-foreground text-sm">Cherish your memories</span>
           </div>
 
           {/* Links */}
@@ -34,12 +30,7 @@ export function Footer() {
             </Link>
           </nav>
 
-          {/* Copyright */}
-          <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-            <span>Made with</span>
-            <Heart className="w-3.5 h-3.5 text-primary fill-primary" />
-            <span>for your memories</span>
-          </div>
+          
         </div>
       </div>
     </footer>
