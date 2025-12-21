@@ -17,9 +17,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Memora | Cherish Your Memories",
-  description: "A human-first, emotionally sensitive photo album platform. Transform your cherished moments into beautiful, personalized albums.",
-  keywords: ["photo album", "memories", "personalized photos", "family photos"],
+  title: "Memora | Luxury Photos, Zero Stress",
+  description: "Professional-quality photos without photographers, travel, or stress. Submit your request and we handle everything — carefully, privately, professionally.",
+  keywords: ["professional photos", "portrait photos", "photo service", "graduation photos", "family portraits", "memorial photos"],
 };
 
 export default function RootLayout({

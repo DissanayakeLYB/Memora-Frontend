@@ -2,48 +2,28 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, User, LogOut, Plus } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/lib/constants";
-import { isAuthenticated, getCurrentUser, logout } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 
 /**
- * Header — Main navigation header
- * 
- * Features:
- * - Responsive with mobile menu
- * - Auth-aware navigation
- * - Subtle, calming design
+ * Header — Clean navigation for service intake site
+ * Minimal, premium feel with clear CTA
  */
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [userName, setUserName] = React.useState<string | null>(null);
 
-  React.useEffect(() => {
-    setIsLoggedIn(isAuthenticated());
-    const user = getCurrentUser();
-    if (user) {
-      setUserName(user.name);
-    }
-  }, [pathname]);
+  // Don't show the request button if already on request page
+  const isRequestPage = pathname === ROUTES.REQUEST;
+  const isThankYouPage = pathname === ROUTES.THANK_YOU;
 
-  const handleLogout = async () => {
-    await logout();
-    setIsLoggedIn(false);
-    setUserName(null);
-    window.location.href = ROUTES.HOME;
-  };
-
-  const navLinks = isLoggedIn
-    ? [
-        { href: ROUTES.DASHBOARD, label: "My Albums" },
-        { href: ROUTES.CREATE_ALBUM, label: "Create Album", icon: Plus },
-      ]
-    : [];
+  const navLinks = [
+    { href: "/#how-it-works", label: "How it works" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -51,67 +31,50 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
-            href={isLoggedIn ? ROUTES.DASHBOARD : ROUTES.HOME}
-            className="flex items-center gap-2 group"
+            href={ROUTES.HOME}
+            className="flex items-center gap-2.5 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-amber-600 flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-lg">M</span>
-            </div>
+            <Image
+              src="/resources/Memora-logo.png"
+              alt="Memora"
+              width={36}
+              height={36}
+              className="rounded-lg"
+            />
             <span className="font-serif text-xl font-medium text-foreground group-hover:text-primary transition-colors">
               Memora
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              const Icon = link.icon;
+              const isActive = pathname === link.href || 
+                (link.href === ROUTES.HOME && pathname === "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-1.5 text-sm font-medium transition-colors",
+                    "text-sm font-medium transition-colors",
                     isActive
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {Icon && <Icon className="w-4 h-4" />}
                   {link.label}
                 </Link>
               );
             })}
 
-            {/* Auth buttons */}
-            {isLoggedIn ? (
-              <div className="flex items-center gap-4 pl-4 border-l border-border">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <User className="w-4 h-4" />
-                  <span>{userName}</span>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={handleLogout}
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  <LogOut className="w-4 h-4 mr-1.5" />
-                  Sign Out
+            {/* CTA Button */}
+            {!isRequestPage && !isThankYouPage && (
+              <Link href={ROUTES.REQUEST}>
+                <Button size="sm" className="gap-2">
+                  Request Photos
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Button>
-              </div>
-            ) : (
-              <div className="flex items-center gap-3">
-                <Link href={ROUTES.LOGIN}>
-                  <Button variant="ghost" size="sm">
-                    Sign In
-                  </Button>
-                </Link>
-                <Link href={ROUTES.REGISTER}>
-                  <Button size="sm">Get Started</Button>
-                </Link>
-              </div>
+              </Link>
             )}
           </nav>
 
@@ -136,53 +99,33 @@ export function Header() {
           <nav className="container-wide py-4 space-y-3">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-              const Icon = link.icon;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "flex items-center gap-2 py-2 text-sm font-medium transition-colors",
+                    "block py-2 text-sm font-medium transition-colors",
                     isActive
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
-                  {Icon && <Icon className="w-4 h-4" />}
                   {link.label}
                 </Link>
               );
             })}
 
-            {isLoggedIn ? (
-              <div className="pt-3 border-t border-border space-y-3">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <User className="w-4 h-4" />
-                  <span>{userName}</span>
-                </div>
-                <button
-                  onClick={handleLogout}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <LogOut className="w-4 h-4" />
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <div className="pt-3 border-t border-border space-y-3">
+            {!isRequestPage && !isThankYouPage && (
+              <div className="pt-3 border-t border-border">
                 <Link
-                  href={ROUTES.LOGIN}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href={ROUTES.REGISTER}
+                  href={ROUTES.REQUEST}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Button className="w-full">Get Started</Button>
+                  <Button className="w-full gap-2">
+                    Request Photos
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Button>
                 </Link>
               </div>
             )}
@@ -192,4 +135,3 @@ export function Header() {
     </header>
   );
 }
-
