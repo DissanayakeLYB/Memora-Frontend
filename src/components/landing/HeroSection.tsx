@@ -70,44 +70,44 @@ export function HeroSection() {
           </div>
 
           {/* Right - Single Before/After Transformation (hidden on mobile) */}
-          <div className="hidden sm:block animate-fade-in" style={{ animationDelay: "400ms" }}>
-            <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6">
-              {/* Before */}
-              <div className="flex flex-col items-center">
-                <div className="w-[110px] sm:w-[140px] md:w-[180px] lg:w-[200px] aspect-[4/5] relative rounded-lg sm:rounded-xl overflow-hidden bg-secondary border border-border shadow-lg">
-                  <NextImage
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop"
-                    alt="Your photo"
-                    fill
-                    className="object-cover opacity-85"
-                    sizes="(max-width: 640px) 110px, (max-width: 768px) 140px, 200px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
-                <p className="text-xs sm:text-sm text-muted-foreground mt-2 sm:mt-3 font-medium">What you give us</p>
+          <div className="hidden sm:flex items-center justify-center gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: "400ms" }}>
+            {/* Before */}
+            <div className="flex flex-col items-center">
+              <div className="relative w-[140px] h-[175px] md:w-[180px] md:h-[225px] lg:w-[200px] lg:h-[250px] rounded-xl overflow-hidden bg-secondary border border-border shadow-lg">
+                <NextImage
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop"
+                  alt="Your photo"
+                  fill
+                  className="object-cover opacity-85"
+                  sizes="200px"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>
+              <p className="text-sm text-muted-foreground mt-3 font-medium">What you give us</p>
+            </div>
 
-              {/* Arrow */}
-              <div className="flex-shrink-0">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary" />
-                </div>
+            {/* Arrow */}
+            <div className="flex-shrink-0">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               </div>
+            </div>
 
-              {/* After */}
-              <div className="flex flex-col items-center">
-                <div className="w-[110px] sm:w-[140px] md:w-[180px] lg:w-[200px] aspect-[4/5] relative rounded-lg sm:rounded-xl overflow-hidden bg-secondary border-2 border-primary/50 shadow-xl shadow-primary/20">
-                  <NextImage
-                    src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop"
-                    alt="Professional result"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 110px, (max-width: 768px) 140px, 200px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-                <p className="text-xs sm:text-sm text-primary mt-2 sm:mt-3 font-medium">What we give back</p>
+            {/* After */}
+            <div className="flex flex-col items-center">
+              <div className="relative w-[140px] h-[175px] md:w-[180px] md:h-[225px] lg:w-[200px] lg:h-[250px] rounded-xl overflow-hidden bg-secondary border-2 border-primary/50 shadow-xl shadow-primary/20">
+                <NextImage
+                  src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop"
+                  alt="Professional result"
+                  fill
+                  className="object-cover"
+                  sizes="200px"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
+              <p className="text-sm text-primary mt-3 font-medium">What we give back</p>
             </div>
           </div>
         </div>
