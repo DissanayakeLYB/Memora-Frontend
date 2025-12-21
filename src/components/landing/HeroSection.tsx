@@ -69,22 +69,22 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right - Single Before/After Transformation (hidden on mobile) */}
-          <div className="hidden sm:flex items-center justify-center gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: "400ms" }}>
-            {/* Before */}
+          {/* Right - Before/After Transformation Showcase */}
+          <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8 animate-fade-in" style={{ animationDelay: "400ms" }}>
+            {/* Previous Image - What you give us */}
             <div className="flex flex-col items-center">
-              <div className="relative w-[140px] h-[175px] md:w-[180px] md:h-[225px] lg:w-[200px] lg:h-[250px] rounded-xl overflow-hidden bg-secondary border border-border shadow-lg">
+              <div className="relative w-[140px] h-[175px] sm:w-[160px] sm:h-[200px] md:w-[180px] md:h-[225px] lg:w-[200px] lg:h-[250px] rounded-xl overflow-hidden bg-secondary border border-border shadow-lg">
                 <NextImage
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop"
-                  alt="Your photo"
+                  src="/resources/generatedImages/Before.jpeg"
+                  alt="Previous photo - what you give us"
                   fill
-                  className="object-cover opacity-85"
-                  sizes="200px"
+                  className="object-cover"
+                  sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, (max-width: 1024px) 180px, 200px"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
-              <p className="text-sm text-muted-foreground mt-3 font-medium">What you give us</p>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-3 font-medium text-center">What you give us</p>
             </div>
 
             {/* Arrow */}
@@ -94,20 +94,20 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* After */}
+            {/* After Image - What we give back */}
             <div className="flex flex-col items-center">
-              <div className="relative w-[140px] h-[175px] md:w-[180px] md:h-[225px] lg:w-[200px] lg:h-[250px] rounded-xl overflow-hidden bg-secondary border-2 border-primary/50 shadow-xl shadow-primary/20">
+              <div className="relative w-[140px] h-[175px] sm:w-[160px] sm:h-[200px] md:w-[180px] md:h-[225px] lg:w-[200px] lg:h-[250px] rounded-xl overflow-hidden bg-secondary border-2 border-primary/50 shadow-xl shadow-primary/20">
                 <NextImage
-                  src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop"
-                  alt="Professional result"
+                  src="/resources/generatedImages/Generated_image_0004.png"
+                  alt="After photo - what we give back"
                   fill
                   className="object-cover"
-                  sizes="200px"
+                  sizes="(max-width: 640px) 140px, (max-width: 768px) 160px, (max-width: 1024px) 180px, 200px"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
               </div>
-              <p className="text-sm text-primary mt-3 font-medium">What we give back</p>
+              <p className="text-xs sm:text-sm text-primary mt-3 font-medium text-center">What we give back</p>
             </div>
           </div>
         </div>
