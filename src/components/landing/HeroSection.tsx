@@ -69,8 +69,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right - Single Before/After Transformation */}
-          <div className="animate-fade-in mt-4 sm:mt-0" style={{ animationDelay: "400ms" }}>
+          {/* Right - Single Before/After Transformation (hidden on mobile) */}
+          <div className="hidden sm:block animate-fade-in" style={{ animationDelay: "400ms" }}>
             <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6">
               {/* Before */}
               <div className="flex flex-col items-center">
