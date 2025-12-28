@@ -18,8 +18,19 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Memora | Luxury Photos, Zero Stress",
-  description: "Professional-quality photos without photographers, travel, or stress. Submit your request and we handle everything — carefully, privately, professionally.",
-  keywords: ["professional photos", "portrait photos", "photo service", "graduation photos", "family portraits", "memorial photos"],
+  description:
+    "Professional-quality photos without photographers, travel, or stress. Submit your request and we handle everything — carefully, privately, professionally.",
+  keywords: [
+    "professional photos",
+    "portrait photos",
+    "photo service",
+    "graduation photos",
+    "family portraits",
+    "memorial photos",
+  ],
+  icons: {
+    icon: "/resources/Memora-logo-favicon.ico",
+  },
 };
 
 export default function RootLayout({
