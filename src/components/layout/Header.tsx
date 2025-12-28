@@ -21,19 +21,14 @@ export function Header() {
   const isRequestPage = pathname === ROUTES.REQUEST;
   const isThankYouPage = pathname === ROUTES.THANK_YOU;
 
-  const navLinks = [
-    { href: "/#how-it-works", label: "How it works" },
-  ];
+  const navLinks = [{ href: "/#how-it-works", label: "How it works" }];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container-wide">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link
-            href={ROUTES.HOME}
-            className="flex items-center gap-2.5 group"
-          >
+          <Link href={ROUTES.HOME} className="flex items-center gap-2.5 group">
             <Image
               src="/resources/Memora-logo.png"
               alt="Memora"
@@ -49,7 +44,8 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || 
+              const isActive =
+                pathname === link.href ||
                 (link.href === ROUTES.HOME && pathname === "/");
               return (
                 <Link
