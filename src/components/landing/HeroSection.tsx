@@ -89,7 +89,7 @@ export function HeroSection() {
             <div className="flex flex-col items-center">
               <div className="relative w-[clamp(100px,25vw,200px)] h-[clamp(125px,31.25vw,250px)] rounded-xl overflow-hidden bg-secondary border border-border shadow-lg">
                 <NextImage
-                  src="/resources/generatedImages/Before.jpeg"
+                  src="/resources/generatedImages/hero-section/Before.jpeg"
                   alt="Previous photo - what you give us"
                   fill
                   className="object-cover"
@@ -114,7 +114,7 @@ export function HeroSection() {
             <div className="flex flex-col items-center">
               <div className="relative w-[clamp(100px,25vw,200px)] h-[clamp(125px,31.25vw,250px)] rounded-xl overflow-hidden bg-secondary border-2 border-primary/50 shadow-xl shadow-primary/20">
                 <NextImage
-                  src="/resources/generatedImages/0027.png"
+                  src="/resources/generatedImages/hero-section/0027.png"
                   alt="After photo - what we give back"
                   fill
                   className="object-cover"
